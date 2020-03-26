@@ -39,19 +39,19 @@ void debug_mode(option_t *option)
     opts = check_chars(opts, option);
     if (option->w == 1)
         next = "No";
-    printw("*** DEBUG MODE ***\n");
-    printw("Key Left :  %s\n", opts[0]);
-    printw("Key Right :  %s\n", opts[1]);
-    printw("Key Turn :  %s\n", opts[2]);
-    printw("Key Drop :  %s\n", opts[3]);
-    printw("Key Quit :  %s\n", opts[4]);
-    printw("Key Pause :  %s\n", opts[5]);
-    printw("Next :  %s\n", next);
-    printw("Level :  %d\n", option->L);
-    printw("Size :  %d*%d\n", option->map_size[0], option->map_size[1]);
+    my_printf("*** DEBUG MODE ***\n");
+    my_printf("Key Left :  %s\n", opts[0]);
+    my_printf("Key Right :  %s\n", opts[1]);
+    my_printf("Key Turn :  %s\n", opts[2]);
+    my_printf("Key Drop :  %s\n", opts[3]);
+    my_printf("Key Quit :  %s\n", opts[4]);
+    my_printf("Key Pause :  %s\n", opts[5]);
+    my_printf("Next :  %s\n", next);
+    my_printf("Level :  %d\n", option->L);
+    my_printf("Size :  %d*%d\n", option->map_size[0], option->map_size[1]);
     read_tetri();
     error_on_tetrimino();
-    printw("Press any key to start Tetris");
+    my_printf("Press any key to start Tetris");
     while(buf == 0)
-        buf = getch();
+        buf = read(0, buf, 4096);
 }

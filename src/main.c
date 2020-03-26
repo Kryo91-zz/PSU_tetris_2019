@@ -7,6 +7,16 @@
 
 #include "../inc/my.h"
 
+void init_curse()
+{
+    initscr();
+    notimeout(stdscr, FALSE);
+    keypad(stdscr, TRUE);
+    noecho();
+    cbreak();
+    clear();
+}
+
 option_t *assign_default(void)
 {
     option_t *option = malloc(sizeof(option_t));
@@ -31,14 +41,9 @@ int main(int ac, char **av)
     check_args(ac, av, option);
     if (option->h == 1)
         return(desc());
-    initscr();
-    notimeout(stdscr, FALSE);
-    keypad(stdscr, TRUE);
-    noecho();
-    cbreak();
     if (option->debug == 1)
         debug_mode(option);
-    clear();
+    init_curse();
     endwin();
     return (0);
 }

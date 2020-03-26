@@ -73,7 +73,7 @@ void read_tetri(void)
         if ((directo->d_name[0] != '.'))
             ++count;
     }
-    printw("Tetriminos : %d\n", count);
+    my_printf("Tetriminos : %d\n", count);
     while ((directo = readdir(oth)) != NULL) {
         if ((directo->d_name[0] != '.')) {
             tetris = my_str_to_word_array(directo->d_name, ".\0\n");
@@ -84,13 +84,13 @@ void read_tetri(void)
             str[red] = '\0';
             map = my_str_to_word_array(str, "\n");
             if (map[1] == NULL)
-                printw("Tetriminos : Name : %s : Error\n", tetris[0]);
+                my_printf("Tetriminos : Name : %s : Error\n", tetris[0]);
             else {
-                printw("Tetriminos : Name : %s : Size %c*%c : Color %c\n", tetris[0], str[0], str[2], str[4]);
+                my_printf("Tetriminos : Name : %s : Size %c*%c : Color %c\n", tetris[0], str[0], str[2], str[4]);
                 for (; str[i] != '\0'; ++i)
-                    printw("%c", str[i]);
+                    my_printf("%c", str[i]);
                 if (str[i-1] != '\n')
-                    printw("\n");
+                    my_printf("\n");
             }
             i = 6;
             src[0] = '\0';
