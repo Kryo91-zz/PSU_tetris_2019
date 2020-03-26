@@ -28,6 +28,9 @@
 #include <ncurses.h>
 #include <termios.h>
 
+typedef struct tetri_s {
+    char **tetris;
+} tetri_t;
 typedef struct option_s {
     int h;
     int L;
@@ -42,7 +45,17 @@ typedef struct option_s {
     int debug;
 } option_t;
 
+typedef struct window_s
+{
+    WINDOW *title;
+    WINDOW *score;
+    WINDOW *board;
+    WINDOW *next;
+} window_t;
+
 void error_on_tetrimino(void);
+void init_curse();
+int curse(option_t *option, window_t *window);
 int desc(void);
 void read_tetri(void);
 void check_args(int ac, char **av, option_t *option);

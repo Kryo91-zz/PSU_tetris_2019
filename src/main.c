@@ -14,7 +14,14 @@ void init_curse()
     keypad(stdscr, TRUE);
     noecho();
     cbreak();
-    clear();
+    curs_set(0);
+	init_pair(1, COLOR_RED, -1);
+	init_pair(2, COLOR_GREEN, -1);
+	init_pair(3, COLOR_YELLOW, -1);
+	init_pair(4, COLOR_BLUE, -1);
+	init_pair(5, COLOR_MAGENTA, -1);
+	init_pair(6, COLOR_CYAN, -1);
+    refresh();
 }
 
 option_t *assign_default(void)
@@ -38,12 +45,11 @@ option_t *assign_default(void)
 int main(int ac, char **av)
 {
     option_t *option = assign_default();
+    window_t *window = malloc(sizeof(window_t));
     check_args(ac, av, option);
     if (option->h == 1)
         return(desc());
     if (option->debug == 1)
         debug_mode(option);
-    init_curse();
-    endwin();
-    return (0);
+    return (curse(option, window));
 }

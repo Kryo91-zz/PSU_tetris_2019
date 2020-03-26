@@ -10,6 +10,7 @@ CC = gcc
 NAME = tetris
 
 SRC =  src/main.c						\
+		src/n-curse.c					\
 		src/desc.c					\
 		src/debug.c						\
 		src/read_tetrimino.c		\

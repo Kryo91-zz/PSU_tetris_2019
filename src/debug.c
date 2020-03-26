@@ -34,7 +34,6 @@ void debug_mode(option_t *option)
 {
     char *next = "Yes";
     char **opts = malloc(sizeof(char *) * 7);
-    char *buf = NULL;
     int size = 1;
 
     opts = check_chars(opts, option);
@@ -53,6 +52,4 @@ void debug_mode(option_t *option)
     error_on_tetrimino();
     read_tetri();
     my_printf("Press any key to start Tetris\n");
-    // while(size > 0)
-    //     size = read(0, buf, 4096);
 }
