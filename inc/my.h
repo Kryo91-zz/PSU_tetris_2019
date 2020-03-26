@@ -26,7 +26,7 @@
 #include <stdarg.h>
 #include <signal.h>
 #include <ncurses.h>
-#include <getopt.h>
+#include <termios.h>
 
 typedef struct option_s {
     int h;
